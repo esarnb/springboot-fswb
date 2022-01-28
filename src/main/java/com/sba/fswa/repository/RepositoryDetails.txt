@@ -1,0 +1,7 @@
+Repository holds all the functions for interacting
+with a database, for getting, update, setting, deleting
+data records.
+
+The functions here are usually called from controller
+based on what API Endpoint was hit for CRUD.
+

@@ -1,0 +1,6 @@
+Entities are models for a specific data structure
+
+This would define what a "User" would contain
+And entities can be used to type variables or
+accept only certain kinds of data
+

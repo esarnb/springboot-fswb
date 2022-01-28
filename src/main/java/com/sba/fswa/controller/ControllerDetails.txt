@@ -1,0 +1,5 @@
+The controller is used to reply/receive calls by frontend
+This is where the RESTful calls would be, using CRUD
+Create, Read, Update, Delete = CRUD
+which are Post, Get, Put, Delete = HTTP Methods
+
