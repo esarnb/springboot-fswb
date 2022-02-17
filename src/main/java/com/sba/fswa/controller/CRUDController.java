@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController // REST label
-@CrossOrigin(origins = "http://localhost:4200") // Angular Port - local testing
+@CrossOrigin(origins = "http://localhost:3333") // React Port - local testing
 @RequestMapping(path="/crud") // main api endpoint
 public class CRUDController {
 
