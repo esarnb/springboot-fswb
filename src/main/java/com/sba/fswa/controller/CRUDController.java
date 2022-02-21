@@ -11,22 +11,21 @@ public class CRUDController {
 
     @GetMapping(path="/")
     public String getData() {
-
         return "GET REQUESTED";
     }
 
     @PostMapping(path="/")
     @ResponseStatus(HttpStatus.CREATED) // changing default 200 to 201 status
     public String postData(@RequestBody DataObj user) {
-        System.out.println(user);
         return "POST REQUESTED: " + user.getFirstname() + " " + user.getLastname();
     }
 
     @PutMapping(path="/")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public String putData() {
-
-        return "PUT REQUESTED";
+    public String putData(DataObj user) {
+        String fname = user.getFirstname();
+        // make edit into db and return newName if no errors
+        return "PUT REQUESTED: " + fname;
     }
 
     @DeleteMapping(path="/")
