@@ -1,9 +1,10 @@
 package com.sba.fswa.controller;
 
+import com.sba.fswa.entities.DataObj;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-@RestController // REST label
+@RestController // REST label combines @Controller and @ResponseBody
 @CrossOrigin(origins = "http://localhost:3333") // React Port - local testing
 @RequestMapping(path="/crud") // main api endpoint
 public class CRUDController {
@@ -16,9 +17,9 @@ public class CRUDController {
 
     @PostMapping(path="/")
     @ResponseStatus(HttpStatus.CREATED) // changing default 200 to 201 status
-    public String postData() {
-
-        return "POST REQUESTED";
+    public String postData(@RequestBody DataObj user) {
+        System.out.println(user);
+        return "POST REQUESTED: " + user.getFirstname() + " " + user.getLastname();
     }
 
     @PutMapping(path="/")

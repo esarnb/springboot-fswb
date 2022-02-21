@@ -1,5 +1,6 @@
 package com.sba.fswa.controller;
 
+import com.sba.fswa.entities.DataObj;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,8 +21,15 @@ public class CRUDTests {
     @Test
     void PostInfo() {
         CRUDController crud = new CRUDController();
-        String postResponse = crud.postData();
-        Assertions.assertEquals("POST REQUESTED", postResponse);
+        DataObj user = new DataObj();
+        user.setId(2);
+        user.setFirstname("Alpha");
+        user.setLastname("Beta");
+        user.setAvatar_url("https://random.test/img.png");
+        user.setAge(42);
+
+        String postResponse = crud.postData(user);
+        Assertions.assertEquals("POST REQUESTED: Alpha Beta", postResponse);
     }
 
 
