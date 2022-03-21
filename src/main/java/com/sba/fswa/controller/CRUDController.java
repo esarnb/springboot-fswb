@@ -32,26 +32,24 @@ public class CRUDController {
     }
 
     /**
-     * Send in bits of information to be updated on the server
+     * Send in user id in params to update user data from body
      * @param user The fields needing to be updated on the user
      * @return validated put request with inputted new name
      */
-//    @PutMapping(path="/{id}")
-    @PutMapping(path="/")
+    @PutMapping(path="/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public String putData(DataObj user) {
         String fname = user.getFirstname();
-        // make edit into db and return newName if no errors
 
         System.out.println("PUT REQ");
         return "PUT REQUESTED: " + fname;
     }
 
     /**
-     * Removing records from the server with a specified id
+     * Removing records from the server with a specified id by params
      * @return validated delete request as a string
      */
-    @DeleteMapping(path="/")
+    @DeleteMapping(path="/{id}")
     @ResponseStatus(HttpStatus.OK)
     public String deleteData() {
         // TODO: Add specific id (or other uid) to find and delete record (specific user)
