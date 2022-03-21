@@ -35,7 +35,7 @@ public class SwaggerConfig {
     private Predicate<String> postPaths() {
         // Predicates can be used to return boolean value
         // But we use it through regex to get all instances of post requests
-        return regex("/api.*");
+        return regex("/crud.*");
     }
 
     /**
@@ -48,7 +48,9 @@ public class SwaggerConfig {
                 // name our swagger docket instance
                 .groupName("public-api")
                 // retrieve the apiSelectorBuilder to control exposed endpoints
-                .apiInfo(apiInfo()).select()
+                .apiInfo(apiInfo())
+                // Initialize with / as beginning of api
+                .pathMapping("/").select()
                 // load potential paths into the swagger docket
                 .paths(postPaths()).build();
     }

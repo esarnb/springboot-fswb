@@ -4,6 +4,12 @@ import com.sba.fswa.entities.DataObj;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
+@Api(value = "User Rest Controller")
 @RestController // REST label combines @Controller and @ResponseBody
 @CrossOrigin(origins = "http://localhost:3333") // React Port - local testing
 @RequestMapping(path="/crud") // main api endpoint
@@ -13,6 +19,13 @@ public class CRUDController {
      * Request all data and return response (return str if no db)
      * @return string as a successful get request
      */
+    @ApiOperation(value = "Get Users", response = String.class, tags = {"/", "getUsers"})
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success|OK"),
+            @ApiResponse(code = 401, message = "Not Authorized"),
+            @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found")
+    })
     @GetMapping(path="/")
     public String getData() {
         System.out.println("GET REQ");
@@ -36,6 +49,7 @@ public class CRUDController {
      * @param user The fields needing to be updated on the user
      * @return validated put request with inputted new name
      */
+//    @PutMapping(path="/{id}")
     @PutMapping(path="/")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public String putData(DataObj user) {
