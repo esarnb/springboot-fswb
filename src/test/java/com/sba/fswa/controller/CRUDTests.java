@@ -1,6 +1,6 @@
 package com.sba.fswa.controller;
 
-import com.sba.fswa.entities.DataObj;
+import com.sba.fswa.entities.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -8,17 +8,17 @@ public class CRUDTests {
     @Test
     void checkUser() {
 
-        DataObj user = new DataObj();
+        User user = new User();
         user.setId(2);
         user.setFirstname("Alpha");
         user.setLastname("Beta");
-        user.setAvatar_url("https://random.test/img.png");
+        user.setAvatar("https://random.test/img.png");
         user.setAge(42);
 
         System.out.println(user);
         System.out.println(user.getId());
         System.out.println(user.getAge());
-        System.out.println(user.getAvatar_url());
+        System.out.println(user.getAvatar());
 
         Assertions.assertEquals("Alpha Beta", user.getFirstname() + " " + user.getLastname());
     }
@@ -39,11 +39,11 @@ public class CRUDTests {
     @Test
     void PostInfo() {
         CRUDController crud = new CRUDController();
-        DataObj user = new DataObj();
+        User user = new User();
         user.setId(2);
         user.setFirstname("Alpha");
         user.setLastname("Beta");
-        user.setAvatar_url("https://random.test/img.png");
+        user.setAvatar("https://random.test/img.png");
         user.setAge(42);
         String postResponse = crud.postData(user);
         Assertions.assertEquals("POST REQUESTED: Alpha Beta", postResponse);
@@ -53,11 +53,11 @@ public class CRUDTests {
     @Test
     void PutInfo() {
         CRUDController crud = new CRUDController();
-        DataObj user = new DataObj();
+        User user = new User();
         user.setId(2);
         user.setFirstname("Alpha2");
         user.setLastname("Beta");
-        user.setAvatar_url("https://random.test/img.png");
+        user.setAvatar("https://random.test/img.png");
         user.setAge(42);
         String putResponse = crud.putData(user);
         Assertions.assertEquals("PUT REQUESTED: Alpha2", putResponse);

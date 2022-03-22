@@ -1,6 +1,6 @@
 package com.sba.fswa.controller;
 
-import com.sba.fswa.entities.DataObj;
+import com.sba.fswa.entities.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +26,7 @@ public class CRUDController {
      */
     @PostMapping(path="/")
     @ResponseStatus(HttpStatus.CREATED) // changing default 200 to 201 status
-    public String postData(@RequestBody DataObj user) {
+    public String postData(@RequestBody User user) {
         System.out.println("POST REQ");
         return "POST REQUESTED: " + user.getFirstname() + " " + user.getLastname();
     }
@@ -38,7 +38,7 @@ public class CRUDController {
      */
     @PutMapping(path="/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public String putData(DataObj user) {
+    public String putData(User user) {
         String fname = user.getFirstname();
 
         System.out.println("PUT REQ");

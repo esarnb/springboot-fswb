@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 // Spring Boot injection decorator
-@SpringBootApplication(exclude =  {DataSourceAutoConfiguration.class })
+@SpringBootApplication()
 public class FswaApplication {
 
 	/**
