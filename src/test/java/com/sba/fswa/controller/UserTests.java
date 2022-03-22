@@ -1,23 +1,30 @@
 package com.sba.fswa.controller;
 
 import com.sba.fswa.entities.User;
+import com.sba.fswa.repository.UserRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.List;
 
+@SpringBootTest
 public class UserTests {
+
+    @Autowired
+    private UserRepo userRepo;
+
     @Test
     void GetInfo() {
-        // Make an instance of the crud controller class
-        UserController user = new UserController();
-
-        Iterable<User> getResponse = user.getAllUsers();
+        List<User> getResponse = userRepo.findAll();
 
         // create local new user as actual
         User person = new User(1, "emp", "muffins", "test", 42);
         User person2 = new User(2, "emp2", "muffins", "test", 42);
-        ArrayList<User> users = new ArrayList<>();
+
+        List<User> users = new ArrayList<>();
         users.add(person);
         users.add(person2);
 
