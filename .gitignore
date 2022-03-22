@@ -63,3 +63,6 @@ buildNumber.properties
 *.tar.gz
 *.rar
 hs_err_pid*
+
+# application.properties
+application.properties
