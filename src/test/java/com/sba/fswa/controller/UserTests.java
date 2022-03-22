@@ -18,9 +18,11 @@ public class UserTests {
 
     @Test
     void GetInfo() {
+
+        // Actual value from repo - to do: setup testing database
         List<User> getResponse = userRepo.findAll();
 
-        // create local new user as actual
+        // create local new user for expected response
         User person = new User(1, "emp", "muffins", "test", 42);
         User person2 = new User(2, "emp2", "muffins", "test", 42);
 
