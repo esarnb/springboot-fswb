@@ -1,23 +1,38 @@
 package com.sba.fswa.controller;
 
 import com.sba.fswa.entities.User;
-import org.springframework.http.HttpStatus;
+import com.sba.fswa.repository.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3333") // React Port - local testing
 @RequestMapping(path="/users")
 public class UserController {
 
+    @Autowired
+    private UserRepo userRepo;
+
     /**
      * Request all users from db
-     * @return string as a successful get request
+     * @return List of all User objects from db
      */
     @GetMapping(path="/all")
-    public String getAllUsers() {
-
-        return "GET REQUESTED";
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
     }
+
+    /**
+     * Request a specific user by firstname from params
+     * @return User object of the specified user
+     */
+    @GetMapping(path="/{firstName}")
+    public User getUser(@RequestParam("firstName") String firstName) {
+        return userRepo.findByFirstname(firstName);
+    }
+
 //
 //    /**
 //     * Request all data and return response (return str if no db)
